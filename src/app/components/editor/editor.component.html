@@ -1,0 +1,42 @@
+
+<div class="editor">
+    <div class="top-bar">
+        <h2>Editor</h2>
+        <fa-icon 
+            *ngIf="showWindow" 
+            [icon]="faCompressArrowsAlt" 
+            size="lg" 
+            [classes]="['icon-editor-compress']"
+            (click)="onClickEditor()"
+        ></fa-icon>
+        <fa-icon 
+            *ngIf="!showWindow" 
+            [icon]="faExpandArrowsAlt" 
+            size="lg"  
+            [classes]="['icon-editor-expand']"
+            (click)="onClickEditor()"
+        ></fa-icon>
+    </div>
+    <div class="screen" *ngIf="showWindow">
+        <p>
+           
+            # Welcome to my React Markdown Previewer!
+
+            ## This is a sub-heading...
+            ### And here's some other cool stuff:
+            # Welcome to my React Markdown Previewer!
+
+            ## This is a sub-heading...
+            ### And here's some other cool stuff:
+            # Welcome to my React Markdown Previewer!
+
+            ## This is a sub-heading...
+            ### And here's some other cool stuff:
+            # Welcome to my React Markdown Previewer!
+
+            ## This is a sub-heading...
+            ### And here's some other cool stuff:
+  
+        </p>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.previewer{
+    border: 1px solid black;
+}
+
+.top-bar{
+    border: 1px solid black;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+}
+.screen{
+    padding: 10px;
+    line-height: 1.5em;
+}
+.top-bar h2{
+}

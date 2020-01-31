@@ -1,0 +1,29 @@
+<div class="previewer">
+    <div class="top-bar">
+        <h2>Previewer</h2>
+        <fa-icon 
+            *ngIf="showWindow" 
+            [icon]="faCompressArrowsAlt" 
+            size="lg" 
+            [classes]="['icon-previewer-compress']"
+            (click)="onClickPreviewer()"
+        ></fa-icon>
+        <fa-icon 
+            *ngIf="!showWindow" 
+            [icon]="faExpandArrowsAlt" 
+            size="lg"  
+            [classes]="['icon-previewer-expand']"
+            (click)="onClickPreviewer()"
+        ></fa-icon>
+    </div>
+    <div class="screen" *ngIf="showWindow">
+        <p>
+            # Welcome to my React Markdown Previewer!
+
+            ## This is a sub-heading...
+            ### And here's some other cool stuff:
+  
+        </p>
+    </div>
+</div>
+

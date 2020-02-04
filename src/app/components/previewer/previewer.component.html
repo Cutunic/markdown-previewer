@@ -16,14 +16,8 @@
             (click)="onClickPreviewer()"
         ></fa-icon>
     </div>
-    <div class="screen" *ngIf="showWindow">
-        <p>
-            # Welcome to my React Markdown Previewer!
-
-            ## This is a sub-heading...
-            ### And here's some other cool stuff:
-  
-        </p>
+    <div class="screen" *ngIf="previewerShowWindow" [@showAnimation]>
+        <div class="editor-screen" [innerHTML]="this.textToShow"></div>
     </div>
 </div>
 

@@ -17,26 +17,7 @@
             (click)="onClickEditor()"
         ></fa-icon>
     </div>
-    <div class="screen" *ngIf="showWindow">
-        <p>
-           
-            # Welcome to my React Markdown Previewer!
-
-            ## This is a sub-heading...
-            ### And here's some other cool stuff:
-            # Welcome to my React Markdown Previewer!
-
-            ## This is a sub-heading...
-            ### And here's some other cool stuff:
-            # Welcome to my React Markdown Previewer!
-
-            ## This is a sub-heading...
-            ### And here's some other cool stuff:
-            # Welcome to my React Markdown Previewer!
-
-            ## This is a sub-heading...
-            ### And here's some other cool stuff:
-  
-        </p>
+    <div class="screen" *ngIf="editorShowWindow" [@showAnimation]>
+        <textarea (keyup)="onEditorChange($event)">{{ this.textToShow }}</textarea>
     </div>
 </div>

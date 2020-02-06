@@ -10,14 +10,14 @@ import { trigger, style, animate, transition } from '@angular/animations';
     trigger(
       'showAnimation', [
         transition(':enter', [
-          style({ opacity: 0, transform: 'translateY(-30px)'}),
+          style({ opacity: 0, height: 0 }),
           animate('500ms ease-in-out',
-              style({opacity: '*', transform: 'translateY(0)'}))
+              style({opacity: '*', height: '*'}))
       ]),
         transition(':leave',[
-          style({ opacity: '*', transform: 'translateY(0)'}),
+          style({ opacity: '*', height:'*'}),
           animate('500ms ease-in-out',
-              style({opacity: 0, transform: 'translateY(-30px)'}))
+              style({opacity: 0, height: 0}))
       ])
       ]
     )
@@ -30,6 +30,7 @@ export class PreviewerComponent implements OnInit {
   faExpandArrowsAlt = faExpandArrowsAlt;
   previewerShowWindow: boolean;
   textToShow: string;
+  editorShowOutside: boolean;
 
   constructor(public previewService: PreviewService) { 
     this.previewService.editorTextObs.subscribe((value) => {
@@ -44,9 +45,10 @@ export class PreviewerComponent implements OnInit {
   ngOnInit() {
     this.textToShow = marked(this.previewService.initEditor());
     this.previewerShowWindow = this.previewService.initShowWindow();
-
+    this.editorShowOutside = this.previewService.getEditorShow();
   }
   onClickPreviewer(){
     this.previewerShowWindow = this.previewService.onPreviewerShowWindow(!this.previewerShowWindow);
+    this.editorShowOutside = this.previewService.getEditorShow();
   }
 }

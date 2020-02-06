@@ -3,21 +3,25 @@
     <div class="top-bar">
         <h2>Editor</h2>
         <fa-icon 
-            *ngIf="showWindow" 
+            *ngIf="editorShowWindow" 
             [icon]="faCompressArrowsAlt" 
             size="lg" 
             [classes]="['icon-editor-compress']"
             (click)="onClickEditor()"
         ></fa-icon>
         <fa-icon 
-            *ngIf="!showWindow" 
+            *ngIf="!editorShowWindow" 
             [icon]="faExpandArrowsAlt" 
             size="lg"  
             [classes]="['icon-editor-expand']"
             (click)="onClickEditor()"
         ></fa-icon>
     </div>
-    <div class="screen" *ngIf="editorShowWindow" [@showAnimation]>
+    <div    class="screen" 
+            *ngIf="editorShowWindow" 
+            [@showAnimation]
+            [ngClass]="{'half-screen': previewerShow == true, 'full-screen': previewerShow == false}"
+            >
         <textarea (keyup)="onEditorChange($event)">{{ this.textToShow }}</textarea>
     </div>
 </div>

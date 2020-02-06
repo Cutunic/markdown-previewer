@@ -2,22 +2,25 @@
     <div class="top-bar">
         <h2>Previewer</h2>
         <fa-icon 
-            *ngIf="showWindow" 
+            *ngIf="previewerShowWindow" 
             [icon]="faCompressArrowsAlt" 
             size="lg" 
             [classes]="['icon-previewer-compress']"
             (click)="onClickPreviewer()"
         ></fa-icon>
         <fa-icon 
-            *ngIf="!showWindow" 
+            *ngIf="!previewerShowWindow" 
             [icon]="faExpandArrowsAlt" 
             size="lg"  
             [classes]="['icon-previewer-expand']"
             (click)="onClickPreviewer()"
         ></fa-icon>
     </div>
-    <div class="screen" *ngIf="previewerShowWindow" [@showAnimation]>
-        <div class="editor-screen" [innerHTML]="this.textToShow"></div>
-    </div>
+    <div    class="screen" 
+            *ngIf="previewerShowWindow"
+            [innerHTML]="this.textToShow"
+            [@showAnimation]
+            [ngClass]="{'half-screen': previewerShowWindow == true, 'full-screen': editorShowOutside == false}"
+    ></div>
 </div>
 

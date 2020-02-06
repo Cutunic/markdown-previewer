@@ -29,9 +29,9 @@ export class PreviewService {
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |`
-startValue:boolean = true;
-editorShow: boolean;
-previewerShow: boolean;
+startValue: boolean = false;
+editorShow: boolean = false;
+previewerShow: boolean = false;
 private _editorText: Subject<string> = new Subject<string>();  
 public editorTextObs = this._editorText.asObservable();  
 
@@ -66,5 +66,11 @@ public previewerShowWindowObs = this._previewerShowWindow.asObservable();
     this.editorShow = value;
     this._editorShowWindow.next(this.editorShow);
     return this.editorShow;
+  }
+  getEditorShow(){
+    return this.editorShow;
+  }
+  getPreviewerShow(){
+    return this.previewerShow;
   }
 }

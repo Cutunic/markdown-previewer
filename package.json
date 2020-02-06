@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "homepage": "https://cutunic.github.io/markdown-previewer",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
